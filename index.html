@@ -158,6 +158,49 @@
             50% { border-color: #b4835a; box-shadow: 0 8px 25px #b4835a; }
         }
 
+        /* Стили для кнопки подписки */
+        .subscribe-button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 40px;
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #4a3827;
+            background: #f1dece;
+            border: 2px solid #d8b99b;
+            border-radius: 50px 15px 50px 15px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(200, 150, 120, 0.3);
+            animation: buttonGlow 3s infinite;
+            letter-spacing: 1px;
+            font-family: Georgia, serif;
+            width: 100%;
+            text-align: center;
+        }
+
+        .subscribe-button:hover {
+            background: #e7cbaf;
+            border-color: #b4835a;
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 8px 25px #b4835a;
+        }
+
+        .subscribe-button:active {
+            transform: scale(0.98) translateY(0);
+        }
+
+        @keyframes buttonGlow {
+            0%, 100% { border-color: #d8b99b; box-shadow: 0 5px 15px rgba(200, 150, 120, 0.3); }
+            50% { border-color: #b4835a; box-shadow: 0 8px 25px rgba(180, 131, 90, 0.5); }
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
         @media (max-width: 500px) {
             .page {
                 padding: 35px 25px;
@@ -170,6 +213,10 @@
             }
             .specialty {
                 font-size: 1.5rem;
+            }
+            .subscribe-button {
+                font-size: 1.2rem;
+                padding: 12px 30px;
             }
         }
     </style>
@@ -187,6 +234,13 @@
             
             <div class="specialty">
                 Специалист по программированию
+            </div>
+            
+            <!-- Контейнер с кнопкой подписки -->
+            <div class="button-container">
+                <button class="subscribe-button" onclick="alert('Спасибо за интерес! Форма подписки откроется в ближайшее время. ✨')">
+                    ✉️ Подписаться на новости
+                </button>
             </div>
         </div>
     </div>
