@@ -158,21 +158,21 @@
             50% { border-color: #b4835a; box-shadow: 0 8px 25px #b4835a; }
         }
 
-        /* Стили для кнопки подписки */
+        /* Стили для кнопки подписки (максимально светлый цвет) */
         .subscribe-button {
             display: inline-block;
             margin-top: 35px;
             padding: 15px 40px;
             font-size: 1.4rem;
             font-weight: 500;
-            color: #4a3827;
-            background: #f1dece;
-            border: 2px solid #d8b99b;
+            color: #6b4f38;
+            background: #ffffff;  /* Чисто белый */
+            border: 2px solid #f0ddcd;
             border-radius: 50px 15px 50px 15px;
             cursor: pointer;
             transition: all 0.4s ease;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(200, 150, 120, 0.3);
+            box-shadow: 0 5px 15px rgba(200, 150, 120, 0.15);
             animation: buttonGlow 3s infinite;
             letter-spacing: 1px;
             font-family: Georgia, serif;
@@ -181,10 +181,10 @@
         }
 
         .subscribe-button:hover {
-            background: #e7cbaf;
-            border-color: #b4835a;
+            background: #ffffff;
+            border-color: #e7cfb8;
             transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 8px 25px #b4835a;
+            box-shadow: 0 8px 25px rgba(180, 131, 90, 0.2);
         }
 
         .subscribe-button:active {
@@ -192,8 +192,8 @@
         }
 
         @keyframes buttonGlow {
-            0%, 100% { border-color: #d8b99b; box-shadow: 0 5px 15px rgba(200, 150, 120, 0.3); }
-            50% { border-color: #b4835a; box-shadow: 0 8px 25px rgba(180, 131, 90, 0.5); }
+            0%, 100% { border-color: #f0ddcd; box-shadow: 0 5px 15px rgba(200, 150, 120, 0.15); }
+            50% { border-color: #e7cfb8; box-shadow: 0 8px 25px rgba(180, 131, 90, 0.2); }
         }
 
         .button-container {
@@ -238,7 +238,7 @@
             
             <!-- Контейнер с кнопкой подписки -->
             <div class="button-container">
-                <button class="subscribe-button" onclick="alert('Спасибо за интерес! Форма подписки откроется в ближайшее время. ✨')">
+                <button class="subscribe-button">
                     ✉️ Подписаться на новости
                 </button>
             </div>
