@@ -158,21 +158,100 @@
             50% { border-color: #b4835a; box-shadow: 0 8px 25px #b4835a; }
         }
 
-        /* Стили для кнопки подписки */
+        /* Стили для блока входа через соцсети */
+        .social-login {
+            margin-top: 35px;
+            padding: 25px 20px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 30px 10px 30px 10px;
+            border: 1px solid #f0ddcd;
+            box-shadow: 0 5px 15px rgba(200, 150, 120, 0.1);
+            backdrop-filter: blur(2px);
+        }
+
+        .social-title {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #8b694b;
+            margin-bottom: 20px;
+            font-family: Georgia, serif;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .social-title::before,
+        .social-title::after {
+            content: "✦";
+            margin: 0 15px;
+            color: #d8b99b;
+            font-size: 1rem;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            color: #5f422e;
+            background: #ffffff;
+            border: 2px solid #f0ddcd;
+            border-radius: 40px 10px 40px 10px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            font-family: Georgia, serif;
+            min-width: 140px;
+            box-shadow: 0 3px 10px rgba(200, 150, 120, 0.1);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            border-color: #d8b99b;
+            box-shadow: 0 8px 20px rgba(180, 131, 90, 0.2);
+            background: #fff9f0;
+        }
+
+        .social-btn:active {
+            transform: translateY(0);
+        }
+
+        .social-btn.vk:hover {
+            border-color: #4a76a8;
+            color: #4a76a8;
+        }
+
+        .social-btn.telegram:hover {
+            border-color: #0088cc;
+            color: #0088cc;
+        }
+
+        .social-btn.google:hover {
+            border-color: #db4437;
+            color: #db4437;
+        }
+
+        /* Стили для кнопки подписки (максимально светлый цвет) */
         .subscribe-button {
             display: inline-block;
-            margin-top: 35px;
+            margin-top: 25px;
             padding: 15px 40px;
             font-size: 1.4rem;
             font-weight: 500;
-            color: #4a3827;
-            background: #f1dece;
-            border: 2px solid #d8b99b;
+            color: #6b4f38;
+            background: #ffffff;
+            border: 2px solid #f0ddcd;
             border-radius: 50px 15px 50px 15px;
             cursor: pointer;
             transition: all 0.4s ease;
             text-decoration: none;
-            box-shadow: 0 5px 15px rgba(200, 150, 120, 0.3);
+            box-shadow: 0 5px 15px rgba(200, 150, 120, 0.15);
             animation: buttonGlow 3s infinite;
             letter-spacing: 1px;
             font-family: Georgia, serif;
@@ -181,10 +260,10 @@
         }
 
         .subscribe-button:hover {
-            background: #e7cbaf;
-            border-color: #b4835a;
+            background: #ffffff;
+            border-color: #e7cfb8;
             transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 8px 25px #b4835a;
+            box-shadow: 0 8px 25px rgba(180, 131, 90, 0.2);
         }
 
         .subscribe-button:active {
@@ -192,13 +271,39 @@
         }
 
         @keyframes buttonGlow {
-            0%, 100% { border-color: #d8b99b; box-shadow: 0 5px 15px rgba(200, 150, 120, 0.3); }
-            50% { border-color: #b4835a; box-shadow: 0 8px 25px rgba(180, 131, 90, 0.5); }
+            0%, 100% { border-color: #f0ddcd; box-shadow: 0 5px 15px rgba(200, 150, 120, 0.15); }
+            50% { border-color: #e7cfb8; box-shadow: 0 8px 25px rgba(180, 131, 90, 0.2); }
         }
 
         .button-container {
             text-align: center;
-            margin-top: 30px;
+            margin-top: 20px;
+        }
+
+        /* Разделитель */
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            color: #d8b99b;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .divider span {
+            background: rgba(255, 249, 240, 0.8);
+            padding: 0 15px;
+            color: #8b694b;
+        }
+
+        .divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d8b99b, transparent);
+            z-index: -1;
         }
 
         @media (max-width: 500px) {
@@ -218,6 +323,14 @@
                 font-size: 1.2rem;
                 padding: 12px 30px;
             }
+            .social-btn {
+                padding: 10px 20px;
+                min-width: 120px;
+                font-size: 1rem;
+            }
+            .social-buttons {
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -235,11 +348,32 @@
             <div class="specialty">
                 Специалист по программированию
             </div>
+
+            <!-- Блок входа через социальные сети -->
+            <div class="social-login">
+                <div class="social-title">Войти через</div>
+                <div class="social-buttons">
+                    <button class="social-btn vk" onclick="alert('Вход через ВКонтакте (демо-режим)')">
+                        VK
+                    </button>
+                    <button class="social-btn telegram" onclick="alert('Вход через Telegram (демо-режим)')">
+                        Telegram
+                    </button>
+                    <button class="social-btn google" onclick="alert('Вход через Google (демо-режим)')">
+                        Google
+                    </button>
+                </div>
+            </div>
+
+            <!-- Разделитель -->
+            <div class="divider">
+                <span>или</span>
+            </div>
             
             <!-- Контейнер с кнопкой подписки -->
             <div class="button-container">
-                <button class="subscribe-button" onclick="alert('Спасибо за интерес! Форма подписки откроется в ближайшее время. ✨')">
-                    ✉️ Подписаться на новости
+                <button class="subscribe-button">
+                    Подписаться на новости
                 </button>
             </div>
         </div>
