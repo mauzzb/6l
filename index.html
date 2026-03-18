@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анастасия Крутьева</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f7efe2;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            background: #c19467;
+            border-radius: 50%;
+            opacity: 0;
+            animation: starFloat 6s infinite ease-in-out;
+        }
+
+        @keyframes starFloat {
+            0% { opacity: 0; transform: scale(0.5) translateY(0); }
+            20% { opacity: 0.8; transform: scale(1.2) translateY(-10px); }
+            40% { opacity: 0.4; transform: scale(0.8) translateY(0); }
+            60% { opacity: 0.9; transform: scale(1) translateY(-5px); }
+            80% { opacity: 0.3; transform: scale(0.6) translateY(5px); }
+            100% { opacity: 0; transform: scale(0.5) translateY(0); }
+        }
+
+        .page {
+            max-width: 700px;
+            width: 100%;
+            background: rgba(255, 249, 240, 0.95);
+            backdrop-filter: blur(5px);
+            border-radius: 50px 20px 50px 20px;
+            padding: 60px 50px;
+            box-shadow: 0 30px 50px -15px #a88363,
+                        0 0 0 2px #f0ddcd inset,
+                        0 0 20px #fff3e4;
+            position: relative;
+            z-index: 1;
+            animation: cardFloat 4s ease-in-out infinite;
+            border: 1px solid #e7cfb8;
+        }
+
+        @keyframes cardFloat {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-8px) scale(1.01); }
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            color: #3f2e1f;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px dashed #dbbc9b;
+            font-family: Georgia, serif;
+            text-align: center;
+            letter-spacing: 2px;
+            animation: glow 3s ease-in-out infinite;
+            text-shadow: 0 0 5px #efd5bc;
+        }
+
+        @keyframes glow {
+            0%, 100% { text-shadow: 0 0 5px #e7cbb0, 0 0 10px #f3dccb; }
+            50% { text-shadow: 0 0 15px #d4a87d, 0 0 25px #f1cfb5; }
+        }
+
+        .content {
+            font-size: 1.6rem;
+            line-height: 1.8;
+            color: #4a3827;
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .content p {
+            margin-bottom: 25px;
+            padding: 8px 15px;
+            background: rgba(245, 231, 217, 0.5);
+            border-radius: 30px 8px 30px 8px;
+            transition: all 0.4s;
+            border: 1px solid transparent;
+        }
+
+        .content p:hover {
+            background: #eddccb;
+            border-color: #caa889;
+            transform: scale(1.02) translateX(5px);
+            box-shadow: 0 5px 15px #dbbc9b;
+        }
+
+        .institute {
+            color: #8b694b;
+            font-weight: 500;
+            background: #f1dece;
+            padding: 3px 15px;
+            border-radius: 30px;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { background: #f1dece; }
+            50% { background: #e7cbaf; }
+        }
+
+        .specialty {
+            font-size: 2rem;
+            color: #5f422e;
+            font-family: Georgia, serif;
+            background: linear-gradient(145deg, #f7e7da, #ecd6c2);
+            padding: 15px 25px;
+            border-radius: 40px 10px 40px 10px;
+            margin-top: 20px;
+            text-align: center;
+            animation: borderGlow 3s infinite;
+            border: 1px solid #d8b99b;
+            box-shadow: 0 5px 15px #d0aa89;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { border-color: #d8b99b; box-shadow: 0 5px 15px #d0aa89; }
+            50% { border-color: #b4835a; box-shadow: 0 8px 25px #b4835a; }
+        }
+
+        @media (max-width: 500px) {
+            .page {
+                padding: 35px 25px;
+            }
+            h1 {
+                font-size: 2.2rem;
+            }
+            .content {
+                font-size: 1.3rem;
+            }
+            .specialty {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars"></div>
+
+    <div class="page">
+        <h1>Крутьева Анастасия Вячеславовна</h1>
+        
+        <div class="content">
+            <p>студентка третьего курса <span class="institute">Рубцовского института (филиала) АлтГУ</span></p>
+            
+            <p>учусь на программиста</p>
+            
+            <div class="specialty">
+                Специалист по программированию
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function createStars() {
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 300; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                
+                const size = Math.random() * 4 + 1;
+                star.style.width = size + 'px';
+                star.style.height = size + 'px';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 8 + 's';
+                star.style.animationDuration = Math.random() * 5 + 4 + 's';
+                
+                starsContainer.appendChild(star);
+            }
+        }
+        
+        createStars();
+        
+        document.querySelector('h1').addEventListener('click', function() {
+            this.style.animation = 'none';
+            this.style.color = '#9b7657';
+            setTimeout(() => {
+                this.style.color = '#3f2e1f';
+                this.style.animation = 'glow 3s ease-in-out infinite';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
